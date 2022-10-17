@@ -2,11 +2,19 @@
 
 <h1> This is a to do list! </h1>
 
+{% for list_ in lists %}
+<p> {{ list_.lid }}</p>
+<p>{{ list_.name }}</p>
+
+
+{% endfor %}
+
 {% for todo in todos %}
 
 <p>{{ todo.tid}}</p>
 <p>{{ todo.tasks }}</p>
-<p>{{ todo.complete}}</p>
+<p>{{ todo.complete }}</p>
+<p>{{ todo.fk_lid }}</p>
 
 {% endfor %}
 
