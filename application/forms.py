@@ -3,13 +3,14 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, SelectField, IntegerField
 
-from application.models import Todos, Lists 
+from application.models import Players, Teams 
 
-class TodoForm(FlaskForm):
-    tasks = StringField("Task")
-    fk_lid = IntegerField("Lists ID")
+class PlayerForm(FlaskForm):
+    name = StringField("Name")
+    position StringField("Position")
+    fk_teamid = IntegerField("Team ID")
     submit = SubmitField("Submit")
 
-class ListForm(FlaskForm):
+class TeamForm(FlaskForm):
     name = StringField("Name")
     submit = SubmitField("Submit")
