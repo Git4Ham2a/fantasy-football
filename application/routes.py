@@ -91,22 +91,22 @@ def update(id):
     return render_template('updateplayer.html', title='Update the player', form=form)
 
 
-#DELETE lists items
+#DELETE teams items
 @app.route('/deletelist/<int:lid>')
-def deletelist(lid):
-    lists_ = Lists.query.get(lid)
-    db.session.delete(lists_)
+def deletelist(id):
+    teams_ = Teams.query.get(id)
+    db.session.delete(teams_)
     db.session.commit()
     return redirect(url_for('index'))
 
 #DELETE todo items
 #Location of this functionality: ip_address:5000/delete/1
-@app.route('/delete/<int:tid>')
-def delete(tid):
+@app.route('/delete/<int:id>')
+def delete(id):
     # Collecting the task we want to delete based on its id
-    tasks = Todos.query.get(tid)
+    name = Players.query.get(id)
     # deleting this item from the database
-    db.session.delete(tasks)
+    db.session.delete(name)
     # committing this change
     db.session.commit()
     # returning the url in the index function. 
