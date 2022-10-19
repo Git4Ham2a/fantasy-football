@@ -7,7 +7,7 @@ from application.models import Players, Teams
 
 class PlayerForm(FlaskForm):
     name = StringField("Name")
-    position StringField("Position")
+    position = StringField("Position")
     fk_teamid = IntegerField("Team ID")
     submit = SubmitField("Submit")
 
