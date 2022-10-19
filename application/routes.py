@@ -13,7 +13,7 @@ def index():
     players = Players.query.all()
     return render_template('index.html', title="Fantasy Football", teams=teams, players=players)
 
-# CREATE team items 
+# CREATE team 
 @app.route('/addteam', methods=['POST', 'GET'])
 def teamadd():
     form = TeamForm() 
@@ -26,9 +26,9 @@ def teamadd():
         return redirect(url_for('index'))
     return render_template('addteams.html', title="Add a new Team", form=form)
 
-#CREATE player items
+#CREATE player 
 #Location of this functionality: ip_address:5000/add
-@app.route('/add', methods=['POST','GET'])
+@app.route('/addplayer', methods=['POST','GET'])
 def add():
     # This points to TodoForm
     form = PlayerForm()
@@ -50,7 +50,7 @@ def add():
     # Otherwise return the template of add.html
     return render_template('addplayer.html', title="Add a new Player", form=form)
 
-#UPDATE list teams
+#UPDATE teams 
 @app.route('/updateteam/<int:lid>', methods=['GET', 'POST'])
 def updateteam(lid):
     form = TeamForm()
@@ -66,8 +66,8 @@ def updateteam(lid):
     return render_template('updateteam.html', title='Update the player', form=form)
 
 
-#UPDATE player items
-@app.route('/update/<int:id>', methods=['GET', 'POST'])
+#UPDATE player
+@app.route('/updateplayer/<int:id>', methods=['GET', 'POST'])
 def update(id):
     form = PlayerForm()
     # Get one name from the specified ID
@@ -91,17 +91,17 @@ def update(id):
     return render_template('updateplayer.html', title='Update the player', form=form)
 
 
-#DELETE teams items
-@app.route('/deletelist/<int:lid>')
+#DELETE team
+@app.route('/deleteteam/<int:lid>')
 def deletelist(id):
     teams_ = Teams.query.get(id)
     db.session.delete(teams_)
     db.session.commit()
     return redirect(url_for('index'))
 
-#DELETE todo items
+#DELETE player
 #Location of this functionality: ip_address:5000/delete/1
-@app.route('/delete/<int:id>')
+@app.route('/deleteplayer/<int:id>')
 def delete(id):
     # Collecting the task we want to delete based on its id
     name = Players.query.get(id)
