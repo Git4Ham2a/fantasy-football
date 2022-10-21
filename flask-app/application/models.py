@@ -8,5 +8,5 @@ class Teams(db.Model):
 class Players(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(30))
-    position = db.Column(db.Boolean, default=False)
+    position = db.Column(db.String(30))
     fk_teamid = db.Column(db.Integer, db.ForeignKey('teams.id'))
