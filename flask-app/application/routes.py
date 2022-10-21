@@ -37,7 +37,7 @@ def add():
         # the variable tasks becomes what is put on the form 
         # todos becomes what we are going to be adding to the database
         players = Players(
-            names = form.names.data,
+            name = form.name.data,
             # Foreign key as a option to add to the create process. 
             fk_teamid = form.fk_teamid.data
         )
