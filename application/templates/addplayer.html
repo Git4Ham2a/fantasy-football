@@ -1,8 +1,8 @@
 {% block body_content %}
     <form action="" method="POST">
         {{ form.hidden_tag() }}
-        <p> Task: {{ form.tasks }}</p>
-        <p> List ID: {{ form.fk_lid }}</p>
+        <p> Name: {{ form.name }}</p>
+        <p> Player ID: {{ form.fk_teamid }}</p>
         {{ form.submit }}
     </form>
 {% endblock body_content %}

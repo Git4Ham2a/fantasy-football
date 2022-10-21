@@ -1,20 +1,20 @@
 {% block body_content %}
 
-<h1> This is a to do list! </h1>
+<h1> Fantasy Football! </h1>
 
-{% for list_ in lists %}
-<p> {{ list_.lid }}</p>
-<p>{{ list_.name }}</p>
+{% for team_ in teams %}
+<p> {{ team_.id }}</p>
+<p>{{ team_.name }}</p>
 
 
 {% endfor %}
 
-{% for todo in todos %}
+{% for player in players %}
 
-<p>{{ todo.tid}}</p>
-<p>{{ todo.tasks }}</p>
-<p>{{ todo.complete }}</p>
-<p>{{ todo.fk_lid }}</p>
+<p>{{ player.id}}</p>
+<p>{{ player.name }}</p>
+<p>{{ player.position }}</p>
+<p>{{ player.fk_teamid }}</p>
 
 {% endfor %}
 
