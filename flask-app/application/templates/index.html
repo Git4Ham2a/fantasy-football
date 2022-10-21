@@ -3,18 +3,18 @@
 <h1> Fantasy Football! </h1>
 
 {% for team_ in teams %}
-<p> {{ team_.id }}</p>
-<p>{{ team_.name }}</p>
+<p> Team ID: {{ team_.id }}</p>
+<p> Team Name: {{ team_.name }}</p>
 
 
 {% endfor %}
 
 {% for player in players %}
 
-<p>{{ player.id}}</p>
-<p>{{ player.name }}</p>
-<p>{{ player.position }}</p>
-<p>{{ player.fk_teamid }}</p>
+<p> Player ID: {{ player.id}}</p>
+<p> Player Name: {{ player.name }}</p>
+<p> Player position: {{ player.position }}</p>
+<p> Team ID: {{ player.fk_teamid }}</p>
 
 {% endfor %}
 

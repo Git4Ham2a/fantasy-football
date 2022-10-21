@@ -31,3 +31,13 @@ services:
     # This will not work unless flask-app is running. 
     depends_on: 
     - "flask-app"
+    - "mysql"
+
+  mysql:
+    build: ./db
+    container_name: mysql
+    ports:
+      - target: 3306
+        published: 3306
+    environment:
+      MYSQL_ROOT_PASSWORD: password
