@@ -38,6 +38,7 @@ def add():
         # todos becomes what we are going to be adding to the database
         players = Players(
             name = form.name.data,
+            position = form.position.data,
             # Foreign key as a option to add to the create process. 
             fk_teamid = form.fk_teamid.data
         )
