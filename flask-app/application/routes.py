@@ -97,15 +97,15 @@ def update(id):
 #DELETE team
 @app.route('/deleteteam/<int:id>')
 def deletelist(id):
-    teams_ = Teams.query.get(id)
-    db.session.delete(teams)
+    team = Teams.query.get(id)
+    db.session.delete(team)
     db.session.commit()
     return redirect(url_for('index'))
 
 #DELETE player
 #Location of this functionality: ip_address:5000/delete/1
 @app.route('/deleteplayer/<int:id>')
-def delete(id):
+def deleteplayer(id):
     # Collecting the task we want to delete based on its id
     name = Players.query.get(id)
     # deleting this item from the database
