@@ -3,6 +3,7 @@
         {{ form.hidden_tag() }}
         <p> Name: {{ form.name }}</p>
         <p> Position: {{ form.position }}</p>
+        <p> Team ID: {{ form.fk_teamid }}</p>
         {{ form.submit }}
     </form>
 {% endblock body_content %}
