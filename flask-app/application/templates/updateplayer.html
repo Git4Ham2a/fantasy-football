@@ -3,7 +3,8 @@
 <form action="" method="POST">
     {{ form.hidden_tag() }}
     <p>Name: {{ form.name }}</p>
-    <p> List ID: {{ form.fk_teamid }}</p>
+    <p>Position: {{ form.position }}</p>
+    <p>Team ID: {{ form.fk_teamid }}</p>
     {{ form.submit }}
 </form>
 

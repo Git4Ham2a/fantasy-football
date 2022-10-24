@@ -88,6 +88,7 @@ def update(id):
     elif request.method == 'GET':
         # Update the form with whats in the database
         form.name.data = name.name 
+        form.position.data = name.position
         form.fk_teamid.data = name.fk_teamid
     # If we go to the url return the template updateplayer.html
     return render_template('updateplayer.html', title='Update the player', form=form)
