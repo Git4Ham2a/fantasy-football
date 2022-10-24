@@ -52,18 +52,18 @@ def add():
     return render_template('addplayer.html', title="Add a new Player", form=form)
 
 #UPDATE teams 
-@app.route('/updateteam/<int:lid>', methods=['GET', 'POST'])
-def updateteam(lid):
+@app.route('/updateteam/<int:id>', methods=['GET', 'POST'])
+def updateteam(id):
     form = TeamForm()
 
-    teams_ = Teams.query.get(id)
+    teams = Teams.query.get(id)
 
     if form.validate_on_submit():
-        teams_.name = form.name.data
+        teams.name = form.name.data
         db.session.commit()
         return redirect(url_for('index'))
     elif request.method == 'GET':
-        form.name.data = teams_.name
+        form.name.data = teams.name
     return render_template('updateteam.html', title='Update the player', form=form)
 
 
@@ -77,7 +77,8 @@ def update(id):
     # If the user clicks submit
     if form.validate_on_submit():
         # What is put in the form gets ammended to the database
-        name.name = form.name.data
+        name.name = form.name.data,
+        name.position = form.position.data,
         name.fk_teamid = form.fk_teamid.data
         # Commit the changes
         db.session.commit()
@@ -93,10 +94,10 @@ def update(id):
 
 
 #DELETE team
-@app.route('/deleteteam/<int:lid>')
+@app.route('/deleteteam/<int:id>')
 def deletelist(id):
     teams_ = Teams.query.get(id)
-    db.session.delete(teams_)
+    db.session.delete(teams)
     db.session.commit()
     return redirect(url_for('index'))
 
