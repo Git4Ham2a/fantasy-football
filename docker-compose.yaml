@@ -14,7 +14,7 @@ services:
   nginx:
   # If this image is not available locally we will pull it from dockerhub. 
     image: hamza25540/nginx:latest
-    # Give container a name 
+     # Give container a name 
     container_name: nginx
     # Is where we specify ports for the container
     ports: 
