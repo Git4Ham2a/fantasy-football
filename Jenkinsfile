@@ -11,14 +11,20 @@ pipeline {
             }
         }
 
-        stage('docker-compose build and run') {
+        stage('docker push') {
+            environment {
+                    DOCKER_CRED = credentials('DOCKER_CRED')   
+                }
             steps {
-                sh "/bin/bash -c 'docker stop \$(docker ps -a -q)'"
-                sh "/bin/bash -c 'docker rm \$(docker ps -a -q)'"
-                sh "/bin/bash -c 'docker rmi \$(docker images -a -q)'"
-                sh "docker-compose up -d"
+                sh "docker-compose build --parallel"
+                sh "docker login -u ${DOCKER_CRED_USR} -p ${DOCKER_CRED_PSW}"
+                sh "docker-compose push" 
             }
         }
-
+        stage('docker swarm') { 
+              steps {
+                sh "docker stack deploy --compose-file docker-compose.yaml inital-stack"    
+              }
+        }
     }
 }
