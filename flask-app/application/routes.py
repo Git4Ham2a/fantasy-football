@@ -30,12 +30,11 @@ def addteam():
 #Location of this functionality: ip_address:5000/add
 @app.route('/addplayer', methods=['POST','GET'])
 def addplayer():
-    # This points to TodoForm
+    # This points to PlayerForm
     form = PlayerForm()
     # Checks that we have clicked the submit button
     if form.validate_on_submit():
-        # the variable tasks becomes what is put on the form 
-        # todos becomes what we are going to be adding to the database
+        # players becomes what we are going to be adding to the database
         players = Players(
             name = form.name.data,
             position = form.position.data,
@@ -106,9 +105,9 @@ def deleteteam(id):
 #Location of this functionality: ip_address:5000/delete/1
 @app.route('/deleteplayer/<int:id>')
 def deleteplayer(id):
-    # Collecting the task we want to delete based on its id
+    # Collecting the player we want to delete based on the id
     name = Players.query.get(id)
-    # deleting this item from the database
+    # deleting this player from the database
     db.session.delete(name)
     # committing this change
     db.session.commit()
