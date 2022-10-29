@@ -15,7 +15,7 @@ def index():
 
 # CREATE team 
 @app.route('/addteam', methods=['POST', 'GET'])
-def teamadd():
+def addteam():
     form = TeamForm() 
     if form.validate_on_submit(): 
         teams = Teams(
@@ -29,7 +29,7 @@ def teamadd():
 #CREATE player 
 #Location of this functionality: ip_address:5000/add
 @app.route('/addplayer', methods=['POST','GET'])
-def add():
+def addplayer():
     # This points to TodoForm
     form = PlayerForm()
     # Checks that we have clicked the submit button
@@ -69,7 +69,7 @@ def updateteam(id):
 
 #UPDATE player
 @app.route('/updateplayer/<int:id>', methods=['GET', 'POST'])
-def update(id):
+def updateplayer(id):
     form = PlayerForm()
     # Get one name from the specified ID
     name = Players.query.get(id)
@@ -96,7 +96,7 @@ def update(id):
 
 #DELETE team
 @app.route('/deleteteam/<int:id>')
-def deletelist(id):
+def deleteteam(id):
     team = Teams.query.get(id)
     db.session.delete(team)
     db.session.commit()
