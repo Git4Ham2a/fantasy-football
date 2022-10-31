@@ -1,1 +1,1 @@
-![image](https://user-images.githubusercontent.com/111743185/198992891-16cd6971-f8c5-4cb6-a034-cef9ae0f870c.png)
+[What does the app do and how it fulfils the brief.docx](https://github.com/hamza25540/fantasy-football/files/9905358/What.does.the.app.do.and.how.it.fulfils.the.brief.docx)
